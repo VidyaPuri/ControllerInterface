@@ -10,10 +10,10 @@ PCA9685_pwm.set_pwm_freq(60)
 servoMin = [130,170,165,135,340,200]
 servoMax = [570,550,480,540,800,500]
 
-contMin =[-100,-100,0,-100,-100,0]
+contMin =[-100,-100,-100,-100,-100,-100]
 contMax =[100,100,100,100,100,100]
 
-startPos =[350,360,325,340,500,0]
+startPos =[350,360,325,340,500,300]
 currentPos = startPos
 root = Tk()
 var0 = DoubleVar()
@@ -62,12 +62,16 @@ def myCallBack(controlId,Value):
             servoPos = int(servoPos)
             moveServo(id,servoPos)
 
-def moveServo(servo,pos):
-        print("Servo",servo,"moves to:",pos)
-        #PCA9685_pwm.set_pwm(servo,0,pos)
+def moveServo(id,pos):
+        print("Servo",id,"moves to:",pos)
+        PCA9685_pwm.set_pwm(id,0,pos)
 
 def moveGrad(controlId,id,pos):
     if moveVals[controlId]==0:
+        if id == 2:
+            id = 3
+        elif id == 3:
+            id = 2
         print("this is analog")
         currentPos[id] = currentPos[id]+ pos*step
         #max limit
@@ -102,7 +106,7 @@ def moveGrad(controlId,id,pos):
                 currentPos[id] = servoMin[id]
         print("this is digital")
     print("Servo",id,"moves to:",currentPos[id])
-    PCA9685_pwm.set_pwm(id,0,currentPos[servo])
+    PCA9685_pwm.set_pwm(id,0,currentPos[id])
 init()
 
 xboxCont = x360.Joystick(controllerCallBack = myCallBack)
