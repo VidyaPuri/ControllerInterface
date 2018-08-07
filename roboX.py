@@ -1,11 +1,11 @@
-from tkinter import *
+#from tkinter import *
 #from tkinter import font
 #from numpy import interp
-import Adafruit_PCA9685
+#import Adafruit_PCA9685
 import time
 import x360
-PCA9685_pwm = Adafruit_PCA9685.PCA9685()
-PCA9685_pwm.set_pwm_freq(60)
+#PCA9685_pwm = Adafruit_PCA9685.PCA9685()
+#PCA9685_pwm.set_pwm_freq(60)
 
 servoMin = [130,170,145,135,130,170]
 servoMax = [570,550,390,540,650,650]
@@ -16,19 +16,19 @@ contMax =[100,100,100,100,100,100]
 startPos =[350,360,325,340,500,300]
 currentPos = startPos
 posEx = [0]*6
-root = Tk()
-var0 = DoubleVar()
-var1 = DoubleVar()
-var2 = DoubleVar()
-var3 = DoubleVar()
-var4 = DoubleVar()
-var5 = DoubleVar()
-servo0 = StringVar()
-servo1 = StringVar()
-servo2 = StringVar()
-servo3 = StringVar()
-servo4 = StringVar()
-servo5 = StringVar()
+# #root = Tk()
+# var0 = DoubleVar()
+# var1 = DoubleVar()
+# var2 = DoubleVar()
+# var3 = DoubleVar()
+# var4 = DoubleVar()
+# var5 = DoubleVar()
+# servo0 = StringVar()
+# servo1 = StringVar()
+# servo2 = StringVar()
+# servo3 = StringVar()
+# servo4 = StringVar()
+# servo5 = StringVar()
 ifGrad = False
 running = True
 digStep = 10
@@ -185,6 +185,6 @@ while running == True:
                     if currentPos[id]<=servoMin[id]:
                         currentPos[id] = servoMin[id]
             print("currentPos",currentPos[id],command)
-            PCA9685_pwm.set_pwm(id,0,currentPos[id])
+            #PCA9685_pwm.set_pwm(id,0,currentPos[id])
 
         time.sleep(0.05)
