@@ -1,8 +1,8 @@
-#import Adafruit_PCA9685
+import Adafruit_PCA9685
 import time
 import x360
-#PCA9685_pwm = Adafruit_PCA9685.PCA9685()
-#PCA9685_pwm.set_pwm_freq(60)
+PCA9685_pwm = Adafruit_PCA9685.PCA9685()
+PCA9685_pwm.set_pwm_freq(60)
 import ik
 import copy
 import matrix
@@ -34,7 +34,7 @@ def gogo(pos):
         move(i, pos[i])
 
 def move(servoNo,pos):
-    #PCA9685_pwm.set_pwm(servoNo,0, int(pos))
+    PCA9685_pwm.set_pwm(servoNo,0, int(pos))
     print('Servo:', servoNo, 'is at:',int(pos))
 
 
