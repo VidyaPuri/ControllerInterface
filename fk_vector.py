@@ -1,8 +1,8 @@
-import Adafruit_PCA9685
+#import Adafruit_PCA9685
 import time
 import x360
-PCA9685_pwm = Adafruit_PCA9685.PCA9685()
-PCA9685_pwm.set_pwm_freq(60)
+#PCA9685_pwm = Adafruit_PCA9685.PCA9685()
+#PCA9685_pwm.set_pwm_freq(60)
 import ik
 import copy
 import matrix
@@ -28,17 +28,18 @@ def mapFromTo(x,a,b,c,d): #maps range from a - b = input range c - d = output ra
     return y
 
 def gogo(pos):
-    for i in range(0, 5):
+    for i in range(0, 6):
         pos[i] = int(pos[i])
         pos[i] = mapFromTo(pos[i],-90,90,servoMin[i],servoMax[i])
         move(i, pos[i])
 
 def move(servoNo,pos):
-    PCA9685_pwm.set_pwm(servoNo,0, int(pos))
+    #PCA9685_pwm.set_pwm(servoNo,0, int(pos))
     print('Servo:', servoNo, 'is at:',int(pos))
 
 
 def main():
+
     # moveVector[0] = 0.5
     # moveVector[1] = 0.9
     # moveVector[2] = -0.3
@@ -47,6 +48,7 @@ def main():
     moveVector[5] = 0
     # print('moveVector', moveVector)
     while True:
+        degAngle = []
         try:
             print('Vnesi x')
             x = float(input())
@@ -81,8 +83,10 @@ def main():
         degAngle = matrix.rad2deg(theta)
         print('degAngle', degAngle)
         goToPos = copy.deepcopy(degAngle)
+        #print(goToPos)
         #degAngle = int(degAngle)
         gogo(goToPos)
+        del degAngle[:]
             # for i in range(0,6):
             #     goToPos[i] = int(degAngle[i])
             #     gogo(goToPos[i])
