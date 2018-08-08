@@ -83,13 +83,11 @@ def main():
         degAngle = matrix.rad2deg(theta)
         print('degAngle', degAngle)
         goToPos = copy.deepcopy(degAngle)
-        #print(goToPos)
-        #degAngle = int(degAngle)
+        print(goToPos)
+
         gogo(goToPos)
         del degAngle[:]
-            # for i in range(0,6):
-            #     goToPos[i] = int(degAngle[i])
-            #     gogo(goToPos[i])
+
 print('startPos',startPos)
 gogo(initPos)
 main()
