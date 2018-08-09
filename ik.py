@@ -19,10 +19,10 @@ d1 = 1.10
 d4 = 1.33
 d6 = 0.30
 
-H = np.array([[1,0,0,0.2],
-            [0,1,0,0.2],
-            [0,0,1,0.2],
-            [0,0,0,1]])
+# H = np.array([[1,0,0,0.2],
+#             [0,1,0,0.2],
+#             [0,0,1,0.2],
+#             [0,0,0,1]])
 
 def calcFK(th):
 
@@ -134,6 +134,7 @@ def calcIK(H):
 
     xi = atan2(d4,a3)
     alfa = atan2(py,px)
+    print('D1',D1,'D2',D2)
     beta = atan2(sqrt(1-pow(D1,2)),D1)
     gama = atan2(sqrt(1-pow(D2,2)),D2)
 

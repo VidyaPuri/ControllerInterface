@@ -70,15 +70,3 @@ def calcMatrix(moveVector):
     M = transX @ transY @ transZ @ rotR @ rotP @ rotJ
     #print(np.round_(M,4))
     return M
-# x = 0.2
-# y = 0
-# z = 0.2
-# degA = 90
-# degB= 90
-# degC = 90
-#
-# a = deg2rad(degA)
-# b = deg2rad(degB)
-# c = deg2rad(degC)
-#
-# calcMatrix(x, y, z, a, b, c)
